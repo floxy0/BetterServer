@@ -1,5 +1,5 @@
 <?php
-namespace floxy\BetterServer;
+namespace floxy\BetterServerV2;
 use pocketmine\plugin\PluginBase;
 use pocketmine\player\Player;
 use pocketmine\command\Command;
