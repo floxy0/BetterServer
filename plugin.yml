@@ -5,11 +5,11 @@ api: 5.0.0
 src-namespace-prefix: floxy\BetterServer
 
 commands:
- bettersrv.restart:
+ betterrestart:
   description: Restart the Server
   permission: betterserver.restart
   
- bettersrv.reload:
+ betterreload:
   description: Reload the Plugin
   permission: betterserver.reload
   
