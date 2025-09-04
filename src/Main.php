@@ -1,27 +1,33 @@
 <?php
+declare(strict_types=1);
+
 namespace floxy\BetterServer;
+
 use pocketmine\plugin\PluginBase;
-use pocketmine\player\Player;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
-use pocketmine\Server;
 use pocketmine\network\mcpe\protocol\TransferPacket;
 
 class Main extends PluginBase{
- public function onEnable(): void{
-  $this->saveDefaultConfig();
- }
- public function onCommand(CommandSender $sender, Command $command, string $label, array $args) : bool{
-  if(strtolower($command->getName())==="bettersrv.restart"){
-   if($sender instanceof Player && !$sender->hasPermission("betterserver.restart")) return true;
-   $ip = $this->getConfig()->get("restart-ip","0.0.0.0");
-   $port = (int)$this->getConfig()->get("restart-port",19132);
-   foreach(Server::getInstance()->getOnlinePlayers() as $player){
-    $player->getNetworkSession()->sendDataPacket(TransferPacket::create($ip, $port));
-   }
-   $this->getServer()->shutdown();
-   return true;
-  }
-  return true;
- }
+
+    public function onEnable(): void{
+        $this->saveDefaultConfig();
+    }
+
+    public function onCommand(CommandSender $sender, Command $command, string $label, array $args): bool{
+        if(strtolower($command->getName()) !== "betterrestart") return false;
+        if(!$sender->hasPermission("betterserver.restart")) return true;
+
+        $config = $this->getConfig();
+        $ip = $config->get("restart-ip", "127.0.0.1");
+        $port = (int)$config->get("restart-port", 19132);
+
+        foreach($this->getServer()->getOnlinePlayers() as $player){
+            $pk = TransferPacket::create($ip, $port);
+            $player->getNetworkSession()->sendDataPacket($pk);
+        }
+
+        $this->getServer()->shutdown();
+        return true;
+    }
 }
