@@ -17,7 +17,7 @@ class Main extends PluginBase{
    $ip = $this->getConfig()->get("restart-ip","0.0.0.0");
    $port = (int)$this->getConfig()->get("restart-port",19132);
    foreach(Server::getInstance()->getOnlinePlayers() as $player){
-    $player->getNetworkSession()->sendDataPacket(TransferPacket::create($ip,$port,false));
+    $player->getNetworkSession()->sendDataPacket(TransferPacket::create($ip,$port));
    }
    $this->getServer()->shutdown();
    return true;
