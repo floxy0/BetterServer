@@ -1,0 +1,8 @@
+--- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/floxy0/BetterServer
+build-by-default: true
+branches:
+- main
+projects:
+  BetterServer:
+    path: ""
+...
