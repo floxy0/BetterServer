@@ -1,0 +1,14 @@
+name: BetterServer
+version: 1.21.101
+main: floxy\BetterServer\Main
+api: 5.33.1
+src-namespace-prefix: floxy\BetterServer
+
+commands:
+ restart:
+  description: Restart the Server
+  permission: betterserver.restart
+  
+permissions:
+ betterserver.restart:
+  default: false
