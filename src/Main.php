@@ -12,7 +12,7 @@ class Main extends PluginBase{
   $this->saveDefaultConfig();
  }
  public function onCommand(CommandSender $sender, Command $command, string $label, array $args) : bool{
-  if(strtolower($command->getName())==="restart"){
+  if(strtolower($command->getName())==="bettersrv.restart"){
    if($sender instanceof Player && !$sender->hasPermission("betterserver.restart")) return true;
    $ip = $this->getConfig()->get("restart-ip","0.0.0.0");
    $port = (int)$this->getConfig()->get("restart-port",19132);
