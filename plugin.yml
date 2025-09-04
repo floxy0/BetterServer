@@ -10,7 +10,7 @@ commands:
   permission: betterserver.restart
   
  bettersrv.reload:
-  description: Soon.
+  description: Reload the Plugin
   permission: betterserver.reload
   
 permissions:
