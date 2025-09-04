@@ -1,7 +1,7 @@
 name: BetterServer
 version: 1.21.101
 main: floxy\BetterServer\Main
-api: 5.33.1
+api: 5.0.0
 src-namespace-prefix: floxy\BetterServer
 
 commands:
