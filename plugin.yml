@@ -3,18 +3,3 @@ version: 1.21.101
 main: floxy\BetterServer\Main
 api: 5.0.0
 src-namespace-prefix: floxy\BetterServer
-
-commands:
- betterrestart:
-  description: Restart the Server
-  permission: betterserver.restart
-  
- betterreload:
-  description: Reload the Plugin
-  permission: betterserver.reload
-  
-permissions:
- betterserver.restart:
-  default: false
- betterserver.reload:
-  default: op
